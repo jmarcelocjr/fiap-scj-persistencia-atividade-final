@@ -27,14 +27,31 @@ public class ExecutaPrograma {
 		
 		System.out.print("Digite o nome do Banco: ");
 		banco.setNome(sc.nextLine());
-		System.out.print("Digite o endereco do Banco:");
+		System.out.print("Digite o endereco do Banco: ");
 		banco.setEndereco(sc.nextLine());
-		System.out.print("Digite o telefone do Banco:");
+		System.out.print("Digite o telefone do Banco: ");
 		banco.setTelefone(sc.nextLine());
 		
 		System.out.println("Persistindo o novo Banco na base de dados...");
 		System.out.println(helper.salvar(banco));
 		
+		
+		System.out.print("Digite o nome do Cliente: ");
+		cliente.setNome(sc.nextLine());
+		System.out.print("Digite o cpf do Cliente: ");
+		cliente.setCpf(sc.nextLine());
+		System.out.print("Digite o endereco do Cliente: ");
+		cliente.setEndereco(sc.nextLine());
+		System.out.print("Digite a idade do Cliente: ");
+		cliente.setIdade(sc.nextInt());
+		System.out.println("Definindo o Banco " + banco.getNome() + " para o cliente...");
+		cliente.setBanco(banco);
+
+		System.out.println("Persistindo o novo cliente na base de dados...");
+		System.out.println(helper.salvar(cliente));
+		
+
+
 		
 //		Banco banco = new Banco();
 //		
