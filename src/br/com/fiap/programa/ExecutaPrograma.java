@@ -15,17 +15,13 @@ public class ExecutaPrograma {
 
 	public static void main(String[] args) {
 		
-		
-		
-		
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("TrabalhoFInal");
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("TrabalhoFinal");
 		EntityManager em = emf.createEntityManager();
 		Helper helper = new Helper(em);
 
 		Banco banco = new Banco();
 		Cliente cliente = new Cliente();
 		Conta conta = new Conta();
-		
 		
 		Scanner sc = new Scanner(System.in);
 		
