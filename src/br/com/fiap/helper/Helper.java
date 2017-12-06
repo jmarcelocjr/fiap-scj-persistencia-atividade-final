@@ -1,5 +1,7 @@
 package br.com.fiap.helper;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 
 import br.com.fiap.entity.Banco;
@@ -45,6 +47,20 @@ public class Helper {
 			return "Sem sucesso!";
 		}
 		return "Sucesso!";
-	}	
+	}
 
+	@SuppressWarnings("unchecked")
+	public List<Banco> listarBanco() {
+		return em.createQuery("From " + Banco.class.getSimpleName()).getResultList();
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<Cliente> listarCliente() {
+		return em.createQuery("From " + Cliente.class.getSimpleName()).getResultList();
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<Conta> listarConta() {
+		return em.createQuery("From " + Conta.class.getSimpleName()).getResultList();
+	}
 }
