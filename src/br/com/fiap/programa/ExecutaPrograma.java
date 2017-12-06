@@ -43,24 +43,37 @@ public class ExecutaPrograma {
 		System.out.print("Digite o endereco do Cliente: ");
 		cliente.setEndereco(sc.nextLine());
 		System.out.print("Digite a idade do Cliente: ");
-		cliente.setIdade(sc.nextInt());
+		cliente.setIdade(Integer.parseInt(sc.nextLine()));
 		System.out.println("Definindo o Banco " + banco.getNome() + " para o cliente...");
 		cliente.setBanco(banco);
+		banco.getClientes().add(cliente);
 
 		System.out.println("Persistindo o novo cliente na base de dados...");
 		System.out.println(helper.salvar(cliente));
 		
-
-
 		
-//		Banco banco = new Banco();
-//		
-//		banco.setNome("Nome");
-//		banco.setEndereco("Endereco");
-//		banco.setTelefone("Telefone");
-//		
-//		helper.salvar(banco);
-//		
+		System.out.print("Digite a agência da Conta: ");
+		String agencia = sc.nextLine();
+		conta.setAgencia(agencia);
+		System.out.print("Digite o numero da Conta: ");
+		conta.setNumeroConta(sc.nextLine());
+
+		System.out.println("Definindo o Banco " + banco.getNome() + " para a conta...");
+		conta.setBanco(banco);
+		banco.getContas().add(conta);
+		System.out.println("Definindo o Cliente " + cliente.getNome() + " para a conta...");
+		conta.setCliente(cliente);
+		cliente.getContas().add(conta);
+
+		System.out.println("Persistindo a nova conta na base de dados...");
+		System.out.println(helper.salvar(conta));
+
+		System.out.println("<=======================================>");
+		System.out.println("Buscando dados fornecido na base de dados");
+
+		System.out.println(helper.listarBanco().toString());
+		System.out.println(helper.listarCliente().toString());
+		System.out.println(helper.listarConta().toString());
 	}
 
 }
