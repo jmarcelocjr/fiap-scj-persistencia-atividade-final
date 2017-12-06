@@ -75,8 +75,8 @@ public class Conta {
 
 	@Override
 	public String toString() {
-		return "Conta [id=" + id + ", numeroConta=" + numeroConta + ", agencia=" + agencia + ", cliente=" + cliente
-				+ ", banco=" + banco + "]";
+		return "Conta [id=" + id + ", numeroConta=" + numeroConta + ", agencia=" + agencia + ", cliente=" + cliente.toString()
+				+ "]";
 	}
 	
 	

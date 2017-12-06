@@ -1,5 +1,6 @@
 package br.com.fiap.entity;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -40,7 +41,7 @@ public class Cliente {
 	private Banco banco;
 
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "cliente")
-	private List<Conta> contas;
+	private List<Conta> contas = new ArrayList<>();
 
 	public Banco getBanco() {
 		return banco;
@@ -101,7 +102,7 @@ public class Cliente {
 	@Override
 	public String toString() {
 		return "Cliente [id=" + id + ", nome=" + nome + ", cpf=" + cpf + ", endereco=" + endereco + ", idade=" + idade
-				+ ", banco=" + banco + ", contas=" + contas + "]";
+				+ ", banco=" + banco.toString() + "]";
 	}
 
 	

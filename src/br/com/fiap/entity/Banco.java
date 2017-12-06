@@ -1,6 +1,8 @@
 package br.com.fiap.entity;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -31,10 +33,10 @@ public class Banco {
 	private String telefone;
 
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "banco")	
-	private List<Cliente> clientes;
+	private List<Cliente> clientes = new ArrayList<>();
 
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "banco")	
-	private List<Conta> contas;
+	private List<Conta> contas = new ArrayList<>();
 
 	public List<Cliente> getClientes() {
 		return clientes;
@@ -84,12 +86,13 @@ public class Banco {
 		this.telefone = telefone;
 	}
 
+	public List<String> getNomesClientes() {
+		return clientes.stream().map(Cliente::getNome).collect(Collectors.toList());
+	}
+
 	@Override
 	public String toString() {
 		return "Banco [id=" + id + ", nome=" + nome + ", endereco=" + endereco + ", telefone=" + telefone
-				+ ", clientes=" + clientes + ", contas=" + contas + "]";
+				+ ", clientes=" + this.getNomesClientes() + "]";
 	}
-
-	
-	
 }
